@@ -27,9 +27,8 @@ void ArduinoNunchuk::init()
 {      
   Wire.begin();
   
-  ArduinoNunchuk::_sendByte(0x55, 0xF0);
-  ArduinoNunchuk::_sendByte(0x00, 0xFB); 
-  
+  WirelessArduinoNunchuk::_sendByte(0x40, 0x00);
+
   ArduinoNunchuk::update();
 }
     
