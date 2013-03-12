@@ -27,11 +27,30 @@ void ArduinoNunchuk::init()
 {      
   Wire.begin();
   
-  WirelessArduinoNunchuk::_sendByte(0x40, 0x00);
+  ArduinoNunchuk::_sendByte(0x40, 0x00);
 
   ArduinoNunchuk::update();
 }
-    
+
+void ArduinoNunchuk::initWireless()
+{      
+  Wire.begin();
+  
+  ArduinoNunchuk::_sendByte(0x40, 0x00);
+
+  ArduinoNunchuk::update();
+}
+
+void ArduinoNunchuk::initWired()
+{      
+  Wire.begin();
+  
+  ArduinoNunchuk::_sendByte(0x55, 0xF0);
+  ArduinoNunchuk::_sendByte(0x00, 0xFB);
+
+  ArduinoNunchuk::update();
+}
+
 void ArduinoNunchuk::update()
 { 
   int count = 0;      
